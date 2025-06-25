@@ -1,1 +1,0 @@
-En esta carpeta se ubicaran los trabajos donde se aprendera a implementar listas con punteros y fortalecer la práctica de las operaciones que se pueden realizar con listas enlazadas
