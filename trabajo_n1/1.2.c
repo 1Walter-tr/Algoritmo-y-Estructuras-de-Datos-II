@@ -1,25 +1,20 @@
-/*Intercambiar valores entre variables*/
 #include <stdio.h>
-
-void intercambiarValores(int *a, int *b);
+#include <stdlib.h>
 
 int main(){
-  int x = 10;
-  int b = 90;
+    int *punteroNumero; //Creamos un puntero que no apunta generalmente a nada
+    punteroNumero = malloc(sizeof(int)); //Asignamos memoria para el puntero
 
-  printf("Valores antes del cambio\n");
-  printf("x = %d\n",x);
-  printf("b = %d\n",b);
+    if(punteroNumero==NULL){ //Verificamos si se guardo memoria
+        printf("Error al asignar memoria\n");
+        return 1;
+    }
 
-  intercambiarValores(&x,&b);
+    *punteroNumero = 77; //Ahora apuntaria al heap asignado
 
-  printf("Valores despues del cambio\n");
-  printf("x = %d\n",x);
-  printf("b = %d\n",b);
-}
+    printf("Valor de puntero: %d\n",*punteroNumero);
 
-void intercambiarValores(int *a, int *b){
-  int temp = *a; //Tenemos tres lugares, guardamos el lugar uno en el lugar vacio
-  *a = *b; //Guuardamos el lugar dos en el lugar uno
-  *b = temp; //Guardamos el lugar uno que estaba en el lugar vacio, en el lugar dos
+    free(punteroNumero); //Una vez que usamos la memoria la liberamos
+
+    return 0;
 }
